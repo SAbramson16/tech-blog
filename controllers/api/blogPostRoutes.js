@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 const {  BlogPost, Comment, User } = require('../../models');
 
 
-// The `/api/art` endpoint
+// The `/api/blogPost` endpoint
 
 // get all blog posts 
 router.get('/', async (req, res) => {
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       include: [{ model: Comment }, { model: User }]
     });
 
-    res.status(200).json(artData);
+    res.status(200).json(blogPostData);
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
